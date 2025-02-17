@@ -3,23 +3,41 @@
     <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
         <label for="firstName">First Name:</label>
         <input id="firstName" class="input-box" type="text" formControlName="firstName" placeholder="Enter First Name">
+        <div *ngIf="formData.get('firstName')?.invalid && formData.get('firstName')?.touched" class="error">
+            First Name is required.
+        </div>
 
         <label for="lastName">Last Name:</label>
         <input id="lastName" class="input-box" type="text" formControlName="lastName" placeholder="Enter Last Name">
+        <div *ngIf="formData.get('lastName')?.invalid && formData.get('lastName')?.touched" class="error">
+            Last Name is required.
+        </div>
 
         <label for="userName">User Name:</label>
         <input id="userName" class="input-box" type="text" formControlName="userName" placeholder="Enter User Name">
+        <div *ngIf="formData.get('userName')?.invalid && formData.get('userName')?.touched" class="error">
+            User Name is required.
+        </div>
 
         <label for="email">Email:</label>
         <input id="email" class="input-box" type="email" formControlName="email" placeholder="Enter Email">
+        <div *ngIf="formData.get('email')?.invalid && formData.get('email')?.touched" class="error">
+            Enter a valid email.
+        </div>
 
         <label for="phoneNumber">Phone Number:</label>
         <input id="phoneNumber" class="input-box" type="text" formControlName="phoneNumber" placeholder="Enter Phone Number">
+        <div *ngIf="formData.get('phoneNumber')?.invalid && formData.get('phoneNumber')?.touched" class="error">
+            Enter a valid phone number.
+        </div>
 
         <label for="password">Password:</label>
         <input id="password" class="input-box" type="password" formControlName="password" placeholder="Enter Password">
+        <div *ngIf="formData.get('password')?.invalid && formData.get('password')?.touched" class="error">
+            Password must be at least 6 characters long.
+        </div>
 
-        <input class="btn" type="submit" value="Register">
+        <input class="btn" type="submit" value="Register" [disabled]="formData.invalid">
     </form>
 </div>
 
