@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()">
+    <fieldset>
+        <legend>User Personal Information</legend>
+        <label for="name">Enter your full name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="details.name" required />
+        
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="details.email" required />
+        
+        <label for="password">Enter your password:</label>
+        <input type="password" id="password" name="pass" [(ngModel)]="details.password" required />
+        
+        <label>Enter your gender:</label>
+        <div class="gender-group">
+            <input type="radio" name="gender" value="male" id="male" [(ngModel)]="details.gender" required />
+            <label for="male">Male</label>
+            <input type="radio" name="gender" value="female" id="female" [(ngModel)]="details.gender" />
+            <label for="female">Female</label>
+            <input type="radio" name="gender" value="others" id="others" [(ngModel)]="details.gender" />
+            <label for="others">Others</label>
+        </div>
+        
+        <label for="dob">Enter your Date of Birth:</label>
+        <input type="date" id="dob" name="dob" [(ngModel)]="details.birth" required />
+        
+        <label for="address">Enter your Address:</label>
+        <textarea id="address" name="address" [(ngModel)]="details.address" required></textarea>
+        
+        <input type="submit" value="Submit" />
+    </fieldset>
+</form>
+
+<div *ngIf="submitted" class="submitted-data">
+    <h3>Submitted Data:</h3>
+    <p>Name: {{details.name}}</p>
+    <p>Email: {{details.email}}</p>
+    <p>Password: {{details.password}}</p>
+    <p>Gender: {{details.gender}}</p>
+    <p>Date of Birth: {{details.birth}}</p>
+    <p>Address: {{details.address}}</p>
+</div>

@@ -1,0 +1,33 @@
+<p>{{ title }}</p>
+<div class="container">
+    <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)">
+        <label for="firstName">First Name:</label>
+        <input id="firstName" class="input-box" type="text" formControlName="firstName" placeholder="Enter First Name">
+
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" class="input-box" type="text" formControlName="lastName" placeholder="Enter Last Name">
+
+        <label for="userName">User Name:</label>
+        <input id="userName" class="input-box" type="text" formControlName="userName" placeholder="Enter User Name">
+
+        <label for="email">Email:</label>
+        <input id="email" class="input-box" type="email" formControlName="email" placeholder="Enter Email">
+
+        <label for="phoneNumber">Phone Number:</label>
+        <input id="phoneNumber" class="input-box" type="text" formControlName="phoneNumber" placeholder="Enter Phone Number">
+
+        <label for="password">Password:</label>
+        <input id="password" class="input-box" type="password" formControlName="password" placeholder="Enter Password">
+
+        <input class="btn" type="submit" value="Register">
+    </form>
+</div>
+
+<div *ngIf="submittedData" class="submitted-data">
+    <h3>Submitted Data:</h3>
+    <p>First Name: {{ submittedData.firstName }}</p>
+    <p>Last Name: {{ submittedData.lastName }}</p>
+    <p>User Name: {{ submittedData.userName }}</p>
+    <p>Email: {{ submittedData.email }}</p>
+    <p>Phone Number: {{ submittedData.phoneNumber }}</p>
+</div>
